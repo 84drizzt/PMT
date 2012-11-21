@@ -1,0 +1,22 @@
+<div id="ibm-navigation">
+  <h2 class="ibm-access">Content navigation</h2>
+  <ul id="ibm-primary-links">
+	<li id="ibm-overview"><a href="javascript:;">Rapid Hiring Tool</a></li>
+	<li><a <?php echo isset($this->menuClass['position'])? $this->menuClass['position'] : ""; ?> href="/position">Position</a></li>
+	<li><a <?php echo isset($this->menuClass['candidate'])? $this->menuClass['candidate'] : ""; ?> href="/candidate">Candidate</a></li>
+	<li><a <?php echo isset($this->menuClass['interview'])? $this->menuClass['interview'] : ""; ?> href="/interview">Interview</a></li>
+	<li><a <?php echo isset($this->menuClass['management'])? $this->menuClass['management'] : ""; ?> href="/management">Management</a>
+	  <ul>
+		<li><a <?php echo isset($this->menuClass['account'])? $this->menuClass['account'] : ""; ?> href="/account">Account</a></li>
+		<li><a <?php echo isset($this->menuClass['vendor'])? $this->menuClass['vendor'] : ""; ?> href="/vendor">Vendor</a></li>
+		<li><a <?php echo isset($this->menuClass['sponsor'])? $this->menuClass['sponsor'] : ""; ?> href="/sponsor">Sponsor</a></li>
+		<li><a <?php echo isset($this->menuClass['project'])? $this->menuClass['project'] : ""; ?> href="/project">Project</a></li>
+		<li><a <?php echo isset($this->menuClass['skill'])? $this->menuClass['skill'] : ""; ?> href="/skill">Skill</a></li>
+	  </ul>
+	</li>
+	<li><a href="javascript:;">Exit</a></li>	
+  </ul>
+  <div id="ibm-secondary-navigation">
+	<!-- SECONDARY NAVIGATION SECTION -->
+  </div>
+</div>

@@ -1,0 +1,76 @@
+
+<div class="page">
+<ul>
+<?php if ($this->pageCount): ?>
+
+<!-- First page link -->
+<?php if (isset($this->previous)): ?>
+<li class="bn_prev1">
+  <a href="<?php echo $this->url(array('page' => $this->first)); ?>">
+    &lt;&lt;
+  </a> </li>
+<?php endif; ?>
+ 
+<!-- Previous page link -->
+<?php if (isset($this->previous)){ ?>
+<li class="bn_prev2">
+  <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">
+    &lt; 
+  </a> </li>
+<?php }?>
+
+<?php 
+for ($i = 1; $i <=3; $i++){
+	$delta = $this->current - 1;
+	if ($delta > 0){
+	
+?>
+<li>
+ <a href="<?php echo $this->url(array('page' => $this->current - $delta)); ?>"><?php echo $this->current - $delta;?></a>
+
+</li>
+<?php 
+	}
+}?>
+
+<li>
+ <a href="<?php echo $this->url(array('page' => $this->current)); ?>"><?php echo $this->current;?></a>
+
+</li>
+
+
+<?php 
+for ($i = 1; $i <=3; $i++){
+	$delta = $this->pageCount - $this->current;
+	if ($delta > $i){
+	
+?>
+<li>
+ <a href="<?php echo $this->url(array('page' => $this->current + $i)); ?>"><?php echo $this->current + $i;?></a>
+
+</li>
+<?php 
+	}
+}?>
+
+
+<!-- Next page link -->
+<?php if (isset($this->next)){ ?>
+<li class="bn_next2">
+  <a href="<?php echo $this->url(array('page' => $this->next)); ?>">
+     &gt;
+  </a>
+</li>
+ <?php }?>
+ 
+<!-- Last page link -->
+<?php if (isset($this->next)){ ?>
+<li class="bn_next1">
+  <a href="<?php echo $this->url(array('page' => $this->last)); ?>">
+    &gt;&gt;
+  </a>
+  </li>
+<?php }?>
+ </ul>
+</div>
+<?php endif; ?>
