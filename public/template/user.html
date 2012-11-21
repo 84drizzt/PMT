@@ -1,0 +1,73 @@
+<p><input value="Create User" type="button" class="ibm-btn-arrow-pri" onclick="ibmweb.overlay.show('overlay_user', this);return false;" /></p>
+
+<table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="User">
+	<caption>
+		<em>User</em>
+	</caption>
+	<thead>
+		<tr>
+			<th class="ibm-rht-hide">ID</th>
+			<th scope="col">Name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Role</th>
+			<th scope="col">Tieline</th>
+			<th scope="col">Cellphone</th>
+			<th class="ibm-rht-action" scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody id="tbody_user">
+		
+	</tbody>
+</table>
+
+
+<!-- Overlay Start ============= -->
+<div class="ibm-common-overlay" id="overlay_user">
+	<div class="ibm-head">
+		<p>
+			<a class="ibm-common-overlay-close" href="#close">Close [x]</a>
+		</p>
+	</div>
+	<div class="ibm-body">
+		<div class="ibm-main">
+			<a class="ibm-access"><!-- Accessibility anchor --></a>
+
+			<div class="ibm-title">
+				<h1 id="overlay_title">Edit User</h1>
+			</div>
+			<div class="ibm-container ibm-alternate">
+				<div class="ibm-container-body">
+					<p>Please fill the form</p>
+					<form dojoType="dijit.form.Form" class="ibm-column-form ibm-styled-form" name="form_user" id="form_user">
+						<p><label for="edit_name">Name:</label>
+							<span><input type="text" name="name" id="edit_name" value="" /></span></p>
+						<p><label for="edit_email">Email:</label>
+							<span><input type="text" name="email" id="edit_email" value="" /></span></p>
+						<p><label for="edit_role">Role:</label>
+							<span><select name="role" id="edit_role">
+								<option value="Admin">Admin</option>
+								<option value="Interviewer">Interviewer</option>
+								<option value="Manager">Manager</option>
+								<option value="PA">PA</option>
+							</select></span></p>
+						<p><label for="edit_tieline">Tieline:</label>
+							<span><input type="text" name="tieline" id="edit_tieline" value="" /></span></p>
+						<p><label for="edit_cellphone">Cellphone:</label>
+							<span><input type="text" name="cellphone" id="edit_cellphone" value="" /></span></p>
+						
+						<div class="ibm-rule"><hr /></div>
+						
+						<div class="ibm-buttons-row">
+							<input value="Submit" type="button" class="ibm-btn-arrow-pri" id="edit_submit" onclick="createModuleItem('user')" />
+							<span class="ibm-sep">&nbsp;</span>
+							<input value="Cancel" type="button" class="ibm-btn-cancel-sec" id="edit_cancel" onclick="ibmweb.overlay.hide('overlay_user');" />
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="ibm-footer"></div>
+</div>
+<!-- Overlay End ============= -->

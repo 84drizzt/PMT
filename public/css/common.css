@@ -1,0 +1,33 @@
+/* CSS Document */
+
+/*
+
+TABLE OF CONTENTS [please read before adding code/fill descrition/update]
+
+- fonts [description]
+- navigation [description]
+- functional defination [description]
+- v17 layout fix [decription: to align with Rapid Hiring Tool UI]
+
+*/
+
+
+/* fonts */
+.ibm-rht #ibm-leadspace-head #ibm-leadspace-body h1 {
+	font-size: 1.6em;
+}
+
+
+/* navigation */
+
+
+/* functional defination */
+.ibm-rht-hide {
+	display: none;
+}
+
+.ibm-rht-action {
+	display: block;
+}
+
+/* v17 layout fix */
