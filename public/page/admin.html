@@ -28,7 +28,7 @@
 <script src="../js/util.js" type="text/javascript">//</script>
 </head>
 <body id="ibm-com" class="ibm-rht ">
-<div id="ibm-top">
+<div id="ibm-top" class="ibm-liquid">
 
 <!-- MASTHEAD_BEGIN -->
 <div id="ibm-masthead">
@@ -61,108 +61,85 @@
 <div id="ibm-pcon">
 <!-- CONTENT_BEGIN -->
 <div id="ibm-content">
-<div id="ibm-leadspace-head" class="ibm-alternate">
-<div id="ibm-leadspace-body">
-<h1>Rapid Hiring Tool</h1>
-</div>
-</div>
-<!-- CONTENT_BODY -->
-<div id="ibm-content-body">
-<div id="ibm-content-main">
-<!-- LEADSPACE_BEGIN -->
-<p>%%leadspace%%</p>
-<!-- LEADSPACE_END -->
-%%contentspace%%
-	
-	<div id="container">  
-	    
+	<div id="ibm-leadspace-head" class="ibm-alternate">
+		<div id="ibm-leadspace-body">
+			<!-- <h1>Rapid Hiring Tool</h1> -->
+		</div>
 	</div>
+	<!-- CONTENT_BODY -->
+	<div id="ibm-content-body">
+		
+		<!-- contentspace start -->
+		<div id="ibm-content-main">
+			<div id="container">  
+			    
+			</div>
+		</div>
+		<!-- contentspace end -->
 	
-</div>
-<!-- FEATURES_BEGIN -->
-<div id="ibm-content-sidebar">
-<div id="ibm-contact-module">
-<!--IBM Contact Module-->
-</div>
-<div id="ibm-merchandising-module">
-<!--IBM Web Merchandising Module-->
-</div>
-%%sidebarspace%%
-</div>
-<!-- FEATURES_END -->
-<!-- CONTENT_BODY_END -->
-</div>
+		<!-- FEATURES_BEGIN -->
+		<div id="ibm-content-sidebar">
+			<div id="ibm-contact-module">
+				<!--IBM Contact Module-->
+			</div>
+			<div id="ibm-merchandising-module">
+				<!--IBM Web Merchandising Module-->
+			</div>
+		</div>
+		<!-- FEATURES_END -->
+		
+	<!-- CONTENT_BODY_END -->
+	</div>
 </div>
 <!-- CONTENT_END -->
+
 <!-- NAVIGATION_BEGIN -->
 <div id="ibm-navigation">
-<h2 class="ibm-access">Content navigation</h2>
-<ul id="ibm-primary-links">
-<li id="ibm-overview"><a href="javascript:;">Rapid Hiring Tool</a></li>
-<li><a href="javascript:;">Projects</a>
-	<ul>
-		<li><a href="">Sublink 1</a></li>
-		<li><a href="">Sublink 2</a>
+	<h2 class="ibm-access">Content navigation</h2>
+	<ul id="ibm-primary-links">
+		<li id="ibm-overview"><a href="javascript:;">Rapid Hiring Tool</a></li>
+		<li><a href="javascript:loadModule('user');">Admin</a>
 			<ul>
-				<li><a href="">SubSub 1</a></li>
-				<li><a href="">SubSub 2</a></li>
-				<li><a href="">SubSub 3</a></li>
+				<li><a href="javascript:loadModule('user');">User</a></li>
+				<li><a href="javascript:loadModule('project');">Project</a></li>
+				<li><a href="javascript:loadModule('sponsor');">Sponsor</a></li>
 			</ul>
 		</li>
-		<li><a href="">Sublink 3</a></li>
-		<li><a href="">Sublink 4</a></li>
+		
+		
+
 	</ul>
-</li>
-<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=0">Tuna</a></li>
-<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=1" class="ibm-active">Trout</a>
-	<ul>
-		<li><a href="">Sublink 1</a></li>
-		<li><a href="">Sublink 2</a>
-			<ul>
-				<li><a href="">SubSub 1</a></li>
-				<li><a href="">SubSub 2</a></li>
-				<li><a href="">SubSub 3</a></li>
-			</ul>
-		</li>
-		<li><a href="">Sublink 3</a></li>
-		<li><a href="">Sublink 4</a></li>
-	</ul>
-</li>
-<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=2">Snapper</a></li>
-<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=2">Elitr sed diam</a></li>
 
-</ul>
-
-<div id="ibm-secondary-navigation">
-<!-- SECONDARY_NAV_BEGIN -->
-<h2>Related links</h2>
-<ul id="ibm-related-links">
-<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=3">Nonumy eirmod</a></li>
-<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=4">Tempor invidunt</a></li>
-<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=5">Vacca foeda</a></li>
-</ul>
-
-</div>
-
+	<div id="ibm-secondary-navigation">
+		<!-- SECONDARY_NAV_BEGIN -->
+		<h2>Related links</h2>
+		<ul id="ibm-related-links">
+			<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=3">Nonumy eirmod</a></li>
+			<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=4">Tempor invidunt</a></li>
+			<li><a href="http://pokgsa.ibm.com/~katagawa/public/example/?a=5">Vacca foeda</a></li>
+		</ul>
+	</div>
 </div>
 <!-- NAVIGATION_END -->
 </div>
+
 <div id="ibm-related-content"></div>
 
 <!-- FOOTER_BEGIN -->
 <div id="ibm-footer-module">
 </div>
 <div id="ibm-footer">
-<h2 class="ibm-access">Footer links
-</h2>
-<ul>
-<li><a href="http://w3.ibm.com/w3/info_terms_of_use.html">Terms of use</a></li>
-</ul>
+	<h2 class="ibm-access">Footer links</h2>
+	<ul>
+		<li><a href="http://w3.ibm.com/w3/info_terms_of_use.html">Terms of use</a></li>
+	</ul>
 </div>
 <!-- FOOTER_END -->
 </div>
+
 <div id="ibm-metrics">
 <!-- <script src="//w3.ibm.com/w3webmetrics/js/ntpagetag.js" type="text/javascript">//</script> -->
 </div>
+
 </body>
 </html>
