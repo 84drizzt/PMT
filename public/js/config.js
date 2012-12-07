@@ -7,4 +7,5 @@ function _DEBUG_(content){
 
 var CONFIG = Object();
 CONFIG.dbView = new Array();
-CONFIG.dbView['user'] = ['id','name','email','role','tieline','cellphone'];
+CONFIG.dbView['user'] 		= ['id','name','email','role','tieline','cellphone'];
+CONFIG.dbView['sponsor'] 	= ['id','name','owner_name','description'];

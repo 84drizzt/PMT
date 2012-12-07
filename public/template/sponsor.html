@@ -1,26 +1,24 @@
-<p><input value="Create User" type="button" class="ibm-btn-arrow-pri" onclick="ibmweb.overlay.show('user_overlay', this);return false;" /></p>
+<p><input value="Create Sponsor" type="button" class="ibm-btn-arrow-pri" onclick="rht.createItemhandler()" /></p>
 
-<table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="User">
-	<caption><em>User</em></caption>
+<table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="sponsor">
+	<caption><em>sponsor</em></caption>
 	<thead>
 		<tr>
 			<th class="ibm-rht-hide">ID</th>
 			<th scope="col">Name</th>
-			<th scope="col">Email</th>
-			<th scope="col">Role</th>
-			<th scope="col">Tieline</th>
-			<th scope="col">Cellphone</th>
+			<th scope="col">Owner name</th>
+			<th scope="col">Description</th>
 			<th class="ibm-rht-action" scope="col">Action</th>
 		</tr>
 	</thead>
-	<tbody id="user_tbody">
+	<tbody id="sponsor_tbody">
 		
 	</tbody>
 </table>
 
 
 <!-- Overlay Start ============= -->
-<div class="ibm-common-overlay" id="user_overlay">
+<div class="ibm-common-overlay" id="sponsor_overlay">
 	<div class="ibm-head">
 		<p><a class="ibm-common-overlay-close" href="#close">Close [x]</a></p>
 	</div>
@@ -28,35 +26,26 @@
 		<div class="ibm-main">
 			<a class="ibm-access"><!-- Accessibility anchor --></a>
 			<div class="ibm-title">
-				<h1 id="user_overlay_title">Edit User</h1>
+				<h1 id="sponsor_overlay_title">Edit sponsor</h1>
 			</div>
 			<div class="ibm-container ibm-alternate">
 				<div class="ibm-container-body">
 					<p>Please fill the form</p>
-					<form dojoType="dijit.form.Form" class="ibm-column-form ibm-styled-form" name="user_form" id="user_form">
-						<p><label for="user_name">Name:</label>
-							<span><input type="text" name="name" id="user_name" value="" /></span></p>
-						<p><label for="user_email">Email:</label>
-							<span><input type="text" name="email" id="user_email" value="" /></span></p>
-						<p><label for="user_role">Role:</label>
-							<span><select name="role" id="user_role">
-								<option value="Admin">Admin</option>
-								<option value="Interviewer">Interviewer</option>
-								<option value="Manager">Manager</option>
-								<option value="PA">PA</option>
-							</select></span></p>
-						<p><label for="user_tieline">Tieline:</label>
-							<span><input type="text" name="tieline" id="user_tieline" value="" /></span></p>
-						<p><label for="user_cellphone">Cellphone:</label>
-							<span><input type="text" name="cellphone" id="user_cellphone" value="" /></span></p>
+					<form dojoType="dijit.form.Form" class="ibm-column-form ibm-styled-form" name="sponsor_form" id="sponsor_form">
+						<p><label for="sponsor_name">Name:</label>
+							<span><input type="text" name="name" id="sponsor_name" value="" /></span></p>
+						<p><label for="sponsor_owner_name">Owner name:</label>
+							<span><input type="text" name="owner_name" id="sponsor_owner_name" value="" /></span></p>
+						<p><label for="sponsor_description">Description:</label>
+							<span><input type="text" name="description" id="sponsor_description" value="" /></span></p>
 						
 						<div class="ibm-rule"><hr /></div>
 						
 						<div class="ibm-buttons-row">
-							<input value="Create" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="user_create" onclick="rht.createModuleItem()" />
-							<input value="Update" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="user_update" onclick="rht.updateModuleItem()" />
+							<input value="Create" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="sponsor_create" onclick="rht.createModuleItem()" />
+							<input value="Update" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="sponsor_update" onclick="rht.updateModuleItem()" />
 							<span class="ibm-sep">&nbsp;</span>
-							<input value="Cancel" type="button" class="ibm-btn-cancel-sec" id="user_cancel" onclick="ibmweb.overlay.hide('user_overlay');" />
+							<input value="Cancel" type="button" class="ibm-btn-cancel-sec" id="sponsor_cancel" onclick="ibmweb.overlay.hide('sponsor_overlay');" />
 						</div>
 					</form>
 				</div>

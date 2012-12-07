@@ -3,8 +3,8 @@ dojo.require("dojox.rpc.Rest");
 var rht = new Object();
 
 dojo.addOnLoad( function () {
-	rht = new RhtModule("user");
-	rht.callModule();
+//	rht = new RhtModule("user");
+//	rht.callModule();
 });
 
 
@@ -51,6 +51,7 @@ dojo.declare(
         	var rht = this;
         	var rest = dojox.rpc.Rest("../index.php/" + this.name);
         	rest("").then( function(response) {
+        		_DEBUG_(response.status);
         		//clean table content first;
         		dojo.query("#" + rht.name + "_tbody").empty();
         		
@@ -67,15 +68,16 @@ dojo.declare(
         // generate row for data item
         generateModuleRow : function( item ) {
         	var cell = "";
-        	for (var index in CONFIG.dbView[this.name]) {
-        		var keyname = CONFIG.dbView[this.name][index];
+        	var dbView = CONFIG.dbView[this.name];
+        	for (var index in dbView) {
+        		var keyname = dbView[index];
         		if(keyname == 'id'){
         			cell += '<td class="ibm-rht-hide">'+item[keyname]+'</td>';
         		}else{
         			cell += '<td>'+item[keyname]+'</td>';
         		}
         	}
-        	if (cell.length > 0){
+        	if (dbView.length > 0){
         		cell += '<td class="ibm-rht-action"><a onclick="rht.updateItemHandler('+item['id']+')">Edit</a>';
         		cell += '&#160;&#160;&#160;<a onclick="rht.deleteItemHandler(this,'+item['id']+')">Delete</a></td>';
         	}
@@ -98,7 +100,7 @@ dojo.declare(
         	rest.post("", dojo.formToJson(this.name + "_form")).then( function() {
         		rht.generateModuleList();
         		
-        		ibmweb.overlay.hide('user_overlay');
+        		ibmweb.overlay.hide(this.name + '_overlay');
         	});
         },
         
@@ -125,7 +127,7 @@ dojo.declare(
         	rest.put(this.id, dojo.formToJson(this.name + "_form")).then( function() {
         		rht.generateModuleList();
         		
-        		ibmweb.overlay.hide('user_overlay');
+        		ibmweb.overlay.hide(this.name + '_overlay');
         	});
         },
         

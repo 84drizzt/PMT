@@ -1,6 +1,6 @@
 <?php
 
-class sponsorContactController extends My_Controller_Rest
+class sponsorcontactController extends My_Controller_Rest
 {
 
 	// list all items - /sponsor
@@ -27,7 +27,7 @@ class sponsorContactController extends My_Controller_Rest
         $this->getHelper('json')->sendJson( $table->insert($item) );
 	}
 	
-	// read item - /sponsor/id/?
+	// read item - /sponsor_contacts/id/?
     public function getAction()
     {
 		$id = $this->_getParam('id');

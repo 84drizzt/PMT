@@ -1,6 +1,6 @@
 <?php
 
-class vendorContactController extends My_Controller_Rest
+class vendorcontactController extends My_Controller_Rest
 {
 
 	// list all items - /vendorContact
