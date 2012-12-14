@@ -32,7 +32,7 @@ class sponsorcontactController extends My_Controller_Rest
     {
 		$id = $this->_getParam('id');
 		$table = new Model_DbView_SponsorContacts();
-		$result = $table->fetchRow( "id = $id" );
+		$result = $table->fetchAll( "sponsor_id = $id" );
 		$result = $result ? $result->toArray() : array();
 		$this->getHelper('json')->sendJson( $result );
     }

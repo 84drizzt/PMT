@@ -3,7 +3,7 @@
 class vendorcontactController extends My_Controller_Rest
 {
 
-	// list all items - /vendorContact
+	// list all items - /vendorcontact
     public function indexAction()
 	{
 		$table = new Model_DbView_VendorContacts();
@@ -13,7 +13,7 @@ class vendorcontactController extends My_Controller_Rest
 	}
 
 
-    // create item - /vendorContact , ?
+    // create item - /vendorcontact , ?
 	public function postAction()
 	{
 		$item = Zend_Json::decode($this->getRequest()->getRawBody());
@@ -27,12 +27,12 @@ class vendorcontactController extends My_Controller_Rest
         $this->getHelper('json')->sendJson( $table->insert($item) );
 	}
 	
-	// read item - /vendorContact/id/?
+	// read item - /vendorcontact/id/?
     public function getAction()
     {
 		$id = $this->_getParam('id');
 		$table = new Model_DbView_VendorContacts();
-		$result = $table->fetchRow( "id = $id" );
+		$result = $table->fetchAll( "vendor_id = $id" );
 		$result = $result ? $result->toArray() : array();
 		$this->getHelper('json')->sendJson( $result );
     }

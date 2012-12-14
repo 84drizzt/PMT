@@ -1,12 +1,12 @@
 <?php
 
-class vendorContactController extends My_Controller_Rest
+class vendorController extends My_Controller_Rest
 {
 
 	// list all items - /vendor
     public function indexAction()
 	{
-		$table = new Model_DbView_vendorContacts();
+		$table = new Model_DbTable_Vendors();
 		$result = $table->fetchAll();
 		$result = $result->count() > 0 ? $result->toArray() : array();
 		$this->getHelper('json')->sendJson( $result );
@@ -22,7 +22,7 @@ class vendorContactController extends My_Controller_Rest
             header("HTTP/1.0 400 Bad Request"); exit;
         }
         
-        $table = new Model_DbTable_vendorContacts();
+        $table = new Model_DbTable_Vendors();
 
         $this->getHelper('json')->sendJson( $table->insert($item) );
 	}
@@ -31,7 +31,7 @@ class vendorContactController extends My_Controller_Rest
     public function getAction()
     {
 		$id = $this->_getParam('id');
-		$table = new Model_DbView_vendorContacts();
+		$table = new Model_DbTable_Vendors();
 		$result = $table->fetchRow( "id = $id" );
 		$result = $result ? $result->toArray() : array();
 		$this->getHelper('json')->sendJson( $result );

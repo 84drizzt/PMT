@@ -1,0 +1,54 @@
+<p><input value="Create Skill" type="button" class="ibm-btn-arrow-pri" onclick="rht.createItemhandler()" /></p>
+
+<table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="skill">
+	<caption><em>skill</em></caption>
+	<thead>
+		<tr>
+			<th class="ibm-rht-hide">ID</th>
+			<th scope="col">Name</th>
+			<th scope="col">Description</th>
+			<th class="ibm-rht-action" scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody id="skill_tbody">
+		
+	</tbody>
+</table>
+
+
+<!-- Overlay Start ============= -->
+<div class="ibm-common-overlay" id="skill_overlay">
+	<div class="ibm-head">
+		<p><a class="ibm-common-overlay-close" href="#close">Close [x]</a></p>
+	</div>
+	<div class="ibm-body">
+		<div class="ibm-main">
+			<a class="ibm-access"><!-- Accessibility anchor --></a>
+			<div class="ibm-title">
+				<h1 id="skill_overlay_title">Edit skill</h1>
+			</div>
+			<div class="ibm-container ibm-alternate">
+				<div class="ibm-container-body">
+					<p>Please fill the form</p>
+					<form dojoType="dijit.form.Form" class="ibm-column-form ibm-styled-form" name="skill_form" id="skill_form">
+						<p><label for="skill_name">Name:</label>
+							<span><input type="text" name="name" id="skill_name" value="" /></span></p>
+						<p><label for="skill_description">Description:</label>
+							<span><input type="text" name="description" id="skill_description" value="" /></span></p>
+						
+						<div class="ibm-rule"><hr /></div>
+						
+						<div class="ibm-buttons-row">
+							<input value="Create" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="skill_create" onclick="rht.createModuleItem()" />
+							<input value="Update" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="skill_update" onclick="rht.updateModuleItem()" />
+							<span class="ibm-sep">&nbsp;</span>
+							<input value="Cancel" type="button" class="ibm-btn-cancel-sec" id="skill_cancel" onclick="ibmweb.overlay.hide('skill_overlay');" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ibm-footer"></div>
+</div>
+<!-- Overlay End ============= -->
