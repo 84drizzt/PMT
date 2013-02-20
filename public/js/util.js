@@ -1,4 +1,5 @@
 dojo.require("dojox.rpc.Rest");
+dojo.require("dijit.form.DateTextBox");
 
 var rht = new Object();
 
@@ -10,6 +11,7 @@ dojo.declare(
     	name: "",
     	pid: "",
     	list: new Array(),
+    	ignore: new Array("id", "CONTACT", "VENDOR", "DETAIL"),
         
         constructor : function( name, pid) {
         	this.name = name;
@@ -25,7 +27,7 @@ dojo.declare(
         	    url: "../template/" + this.name + ".html",
         	    timeout: 5000,
         	    load: function(response, ioArgs){
-        	    	_DEBUG_("xhr get success:" + response);
+        	    	//_DEBUG_("xhr get success:" + response);
         	    	dojo.byId("container").innerHTML = response;
         	    	
         	    	rht.generateModuleList();
@@ -62,14 +64,20 @@ dojo.declare(
         
         // generate row for data item
         generateModuleRow : function( item ) {
+        	var rht = this;
         	var cell = "";
-        	var dbView = CONFIG.dbView[this.name];
+        	var dbView = CONFIG.dbView[rht.name];
+        	_DEBUG_(dbView);
         	for (var index in dbView) {
         		var keyname = dbView[index];
         		if(keyname == 'id' || keyname.search('_id') > 0){
         			cell += '<td class="ibm-rht-hide">'+item[keyname]+'</td>';
-        		}else if(keyname == 'contact'){
-        			cell += '<td><a onclick="rht.showContactsHandler('+item['id']+')">Show Contacts</a></td>';
+        		}else if(keyname == 'CONTACT'){
+        			cell += '<td><a onclick="rht.showContactsHandler('+item['id']+', \''+item['name']+'\')">Show Contacts</a></td>';
+        		}else if(keyname == 'VENDOR'){
+        			cell += '<td><a onclick="rht.showVendorHandler('+item[CONFIG.dbView[rht.name+'_VENDOR'][0]]+')">'+item[CONFIG.dbView[rht.name+'_VENDOR'][1]]+'</a></td>';
+        		}else if(keyname == 'DETAIL'){
+        			cell += '<td><a onclick="rht.showDetailHandler('+item['id']+')">Details</a></td>';
         		}else{
         			cell += '<td>'+item[keyname]+'</td>';
         		}
@@ -78,7 +86,7 @@ dojo.declare(
         		cell += '<td class="ibm-rht-action"><a onclick="rht.updateItemHandler('+item['id']+')">Edit</a>';
         		cell += '&#160;&#160;&#160;<a onclick="rht.deleteItemHandler(this,'+item['id']+')">Delete</a></td>';
         	}
-        	
+        	_DEBUG_(cell);
         	dojo.place("<tr>" + cell + "</tr>", dojo.byId(this.name + "_tbody"));
         },
         
@@ -111,7 +119,7 @@ dojo.declare(
         	
         	for (var index in CONFIG.dbView[this.name]) {
 	        	var keyname = CONFIG.dbView[this.name][index];
-        		if(keyname != 'id'){
+        		if(! in_array(this.ignore, keyname)){
         			_DEBUG_(keyname);
         			dojo.byId(this.name + '_' + keyname).value = this.list[id][keyname];
         		}
@@ -160,11 +168,6 @@ dojo.declare(
         	});
         },
         
-        showContactsHandler : function( id ) {
-        	//openwin(this.name + "contact" + "_overlay");
-        	openwin("../page/contact.html?load="+this.name+"&pid="+id,800,480);
-        },
-        
         buildDropdown : function (){
         	var rht = this;
         	dojo.query("#"+ this.name + "_form select[source]").forEach(function(i){
@@ -187,6 +190,64 @@ dojo.declare(
         		dojo.byId(target_id).innerHTML = optionCode;
         	});
         	
+        },
+        
+        showContactsHandler : function( id, name ) {
+        	openwin("../page/contact.html?load="+this.name+"&pid="+id+"&pname="+name,800,480);
+        },
+        
+        showVendorHandler : function( id ) {
+        	dojo.xhrGet({
+        	    url: "../template/detail.html",
+        	    timeout: 5000,
+        	    load: function(response, ioArgs){
+        	    	dojo.byId("container-sub").innerHTML = response;
+        	    	
+        	    	var rest = dojox.rpc.Rest("../index.php/vendorcontact/get/?contactid=" + id);
+                	rest("").then( function(response) {
+                		var responseData = eval(response);
+                		dojo.forEach(responseData, function(item, i) {
+                			ibmweb.overlay.show("vendorcontact_overlay");
+                			
+                			var dbView = CONFIG.dbView['vendorcontact'];
+                        	for (var index in dbView) {
+                        		var keyname = dbView[index];
+                        		dojo.byId("vendorcontact_"+keyname).innerHTML = item[keyname];
+                        	}
+                		});
+                	});
+        	    	
+        	        return response; //必须返回response
+        	    },
+        	    error: function(response, ioArgs){
+        	    	return response; //必须返回response
+        	    }
+        	});
+        },
+        
+        showDetailHandler : function( id ) {
+        	var rht = this;
+        	
+        	dojo.xhrGet({
+        	    url: "../template/detail.html",
+        	    timeout: 5000,
+        	    load: function(response, ioArgs){
+        	    	dojo.byId("container-sub").innerHTML = response;
+        	    	
+        	    	ibmweb.overlay.show("detail_overlay");
+        	    	
+        	    	var dbView = CONFIG.dbView['candidate_DETAIL'];
+                	for (var index in dbView) {
+                		var keyname = dbView[index];
+                		dojo.byId("detail_"+keyname).innerHTML = rht.list[id][keyname];
+                	}
+        	    	
+        	        return response; //必须返回response
+        	    },
+        	    error: function(response, ioArgs){
+        	    	return response; //必须返回response
+        	    }
+        	});
         },
     }
 );

@@ -30,4 +30,23 @@ TABLE OF CONTENTS [please read before adding code/fill descrition/update]
 	display: block;
 }
 
+#ibm-com div.dijitDialog .ibm-main p.ibm-rht-detail {
+	padding: 0px 10px 0px 5px;
+}
+
+.ibm-rht-detail label{
+	width:140px;
+	display: block;
+	float: left;
+	font-weight: bold;
+}
+.ibm-rht-detail span{
+	display: inline;
+	margin-left:5px;
+}
+
+
+#ibm-com .dijitDialogPaneContent .ibm-rht-overlay-wide{
+	width: 600px;
+}
 /* v17 layout fix */

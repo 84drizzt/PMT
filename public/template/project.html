@@ -1,7 +1,7 @@
 <p><input value="Create Project" type="button" class="ibm-btn-arrow-pri" onclick="rht.createItemhandler()" /></p>
 
 <table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="project">
-	<caption><em>project</em></caption>
+	<caption><em>Project</em></caption>
 	<thead>
 		<tr>
 			<th class="ibm-rht-hide">ID</th>
@@ -42,11 +42,13 @@
 						<p><label for="project_sponsor_id">Sponsor:</label>
 							<span><select name="sponsor_id" id="project_sponsor_id" source="sponsor">
 								<option value="">Select one</option>
-							</select></span></p>
+							</select>
+							<input type="hidden" id="project_sponsor_name" /></span></p>
 						<p><label for="project_owner_id">Owner:</label>
 							<span><select name="owner_id" id="project_owner_id" source="user">
 								<option value="">Select one</option>
-							</select></span></p>
+							</select>
+							<input type="hidden" id="project_owner_name" /></span></p>
 						
 						<div class="ibm-rule"><hr /></div>
 						

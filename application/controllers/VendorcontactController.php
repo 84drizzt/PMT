@@ -31,8 +31,12 @@ class vendorcontactController extends My_Controller_Rest
     public function getAction()
     {
 		$id = $this->_getParam('id');
+		$query = "vendor_id = $id";
+		if ($this->_hasParam('contactid')){
+			$query = "id = ".$this->_getParam('contactid');
+		}
 		$table = new Model_DbView_VendorContacts();
-		$result = $table->fetchAll( "vendor_id = $id" );
+		$result = $table->fetchAll( $query );
 		$result = $result ? $result->toArray() : array();
 		$this->getHelper('json')->sendJson( $result );
     }

@@ -39,13 +39,14 @@ dojo.addOnLoad( function () {
 		rht.generateModuleList();
 		
 		dojo.byId(getParam('load') + "_id").value = getParam('pid');
+		dojo.query(".contact_for").text(getParam('pname'));
 	}
 });
 
 </script>
 </head>
 
-<body id="ibm-com" class="ibm-ptt" >
+<body id="ibm-com" class="ibm-ptt">
 <div id="ibm-top" class="ibm-popup">
 
 	<!-- MASTHEAD_BEGIN -->
@@ -85,11 +86,15 @@ dojo.addOnLoad( function () {
 			<!-- CONTENT_BODY -->
 			<div id="ibm-content-body">
 				<div id="ibm-content-main">
-					<p><input value="Create Contact" type="button" class="ibm-btn-arrow-pri" onclick="rht.createItemhandler()" /></p>
+					<p>
+						<input value="Create Contact" type="button" class="ibm-btn-arrow-pri" onclick="rht.createItemhandler();" />
+						<span class="ibm-sep">&nbsp;</span>
+						<input value="Close Window" type="button" class="ibm-btn-cancel-sec" onclick="window.close();" />
+					</p>
 					
 					<div id="sponsorcontact" class="ibm-rht-hide">
 					<table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="sponsor">
-						<caption><em>Contact</em></caption>
+						<caption><em>Contact for <span class="contact_for"></span></em></caption>
 						<thead>
 							<tr>
 								<th class="ibm-rht-hide">ID</th>
@@ -108,7 +113,7 @@ dojo.addOnLoad( function () {
 					
 					<div id="vendorcontact" class="ibm-rht-hide">
 					<table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="vendor">
-						<caption><em>Contact</em></caption>
+						<caption><em>Contact for <span class="contact_for"></span></em></caption>
 						<thead>
 							<tr>
 								<th class="ibm-rht-hide">ID</th>
@@ -188,7 +193,7 @@ dojo.addOnLoad( function () {
 											<p><label for="vendorcontact_office_phone">Office Phone:</label>
 												<span><input type="text" name="office_phone" id="vendorcontact_office_phone" value="" /></span></p>
 											<p><label for="vendorcontact_cellphone">Cellphone:</label>
-												<span><input type="text" name="cellphone" id="vendorcontact_cellphone:" value="" /></span></p>
+												<span><input type="text" name="cellphone" id="vendorcontact_cellphone" value="" /></span></p>
 											<p><label for="vendorcontact_email">Email:</label>
 												<span><input type="text" name="email" id="vendorcontact_email" value="" /></span></p>
 											<p><label for="vendorcontact_address">Address:</label>

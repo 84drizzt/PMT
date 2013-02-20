@@ -34,3 +34,24 @@ function getParam(name){
     }
     return items;
 }
+
+function dijitDialogShow(dTitle, dContent, dClass) {
+	dojo.require('dijit.Dialog');
+	dojo.addOnLoad(function() {
+		var d = new dijit.Dialog({
+			title : dTitle,
+			content : dContent,
+			class: dClass
+		});
+		d.show();
+	});
+	return false;
+}
+
+function in_array(arr, e)
+{
+	var S = String.fromCharCode(2);
+    var r = new RegExp(S+e+S);
+    return r.test(S+arr.join(S)+S);
+}
+

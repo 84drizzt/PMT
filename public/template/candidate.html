@@ -1,27 +1,28 @@
-<p><input value="Create Project" type="button" class="ibm-btn-arrow-pri" onclick="rht.createItemhandler()" /></p>
+<p><input value="Create Candidate" type="button" class="ibm-btn-arrow-pri" onclick="rht.createItemhandler()" /></p>
 
-<table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="project">
-	<caption><em>project</em></caption>
+<table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="candidate">
+	<caption><em>Candidate</em></caption>
 	<thead>
 		<tr>
 			<th class="ibm-rht-hide">ID</th>
 			<th scope="col">Name</th>
-			<th scope="col">Description</th>
-			<th class="ibm-rht-hide">Sponsor ID</th>
-			<th scope="col">Sponsor</th>
-			<th class="ibm-rht-hide">Owner ID</th>
-			<th scope="col">Owner</th>
+			<th scope="col">Cellphone</th>
+			<th scope="col">Email</th>
+			<th scope="col">Vendor Contact</th>
+			<th scope="col">Show Detail</th>
+			<th scope="col">Status</th>
+			<th scope="col">Onboard Date</th>
 			<th class="ibm-rht-action" scope="col">Action</th>
 		</tr>
 	</thead>
-	<tbody id="project_tbody">
+	<tbody id="candidate_tbody">
 		
 	</tbody>
 </table>
 
 
 <!-- Overlay Start ============= -->
-<div class="ibm-common-overlay" id="project_overlay">
+<div class="ibm-common-overlay" id="candidate_overlay">
 	<div class="ibm-head">
 		<p><a class="ibm-common-overlay-close" href="#close">Close [x]</a></p>
 	</div>
@@ -29,34 +30,68 @@
 		<div class="ibm-main">
 			<a class="ibm-access"><!-- Accessibility anchor --></a>
 			<div class="ibm-title">
-				<h1 id="project_overlay_title">Edit project</h1>
+				<h1 id="candidate_overlay_title">Edit candidate</h1>
 			</div>
 			<div class="ibm-container ibm-alternate">
 				<div class="ibm-container-body">
 					<p>Please fill the form</p>
-					<form dojoType="dijit.form.Form" class="ibm-column-form ibm-styled-form" name="project_form" id="project_form">
-						<p><label for="project_name">Name:</label>
-							<span><input type="text" name="name" id="project_name" value="" /></span></p>
-						<p><label for="project_description">Description:</label>
-							<span><input type="text" name="description" id="project_description" value="" /></span></p>
-						<p><label for="project_sponsor_id">Sponsor:</label>
-							<span><select name="sponsor_id" id="project_sponsor_id" source="sponsor">
+					<form dojoType="dijit.form.Form" class="ibm-column-form ibm-styled-form" name="candidate_form" id="candidate_form">
+						<p><label for="candidate_name">Name:</label>
+							<span><input type="text" name="name" id="candidate_name" value="" /></span></p>
+						<p><label for="candidate_cellphone">Cellphone:</label>
+							<span><input type="text" name="cellphone" id="candidate_cellphone" value="" /></span></p>
+						<p><label for="candidate_email">Email::</label>
+							<span><input type="text" name="email" id="candidate_email" value="" /></span></p>
+						<p><label for="candidate_owner_id">Vendor Contact:</label>
+							<span><select name="vendor_contact_id" id="candidate_vendor_contact_id" source="vendorcontact">
 								<option value="">Select one</option>
 							</select></span></p>
-						<p><label for="project_owner_id">Owner:</label>
-							<span><select name="owner_id" id="project_owner_id" source="user">
+						<p><label for="candidate_status">Status:</label>
+							<span><select name="status" id="candidate_status">
 								<option value="">Select one</option>
-							</select></span></p>
+								<option value="New">New</option>
+								<option value="Pending">Pending</option>
+								<option value="Approved">Approved</option>
+								<option value="Rejected">Rejected</option>
+							</select></span></p>	
+						<p><label for="candidate_onboard_date">Onboard Date::</label>
+							<span><input type="text" name="onboard_date" id="candidate_onboard_date" value="" 
+									data-dojo-type="dijit.form.DateTextBox" required="true" /></span></p>
+							
+						
 						
 						<div class="ibm-rule"><hr /></div>
 						
 						<div class="ibm-buttons-row">
-							<input value="Create" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="project_create" onclick="rht.createModuleItem()" />
-							<input value="Update" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="project_update" onclick="rht.updateModuleItem()" />
+							<input value="Create" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="candidate_create" onclick="rht.createModuleItem()" />
+							<input value="Update" type="button" class="ibm-btn-arrow-pri ibm-rht-hide" id="candidate_update" onclick="rht.updateModuleItem()" />
 							<span class="ibm-sep">&nbsp;</span>
-							<input value="Cancel" type="button" class="ibm-btn-cancel-sec" id="project_cancel" onclick="ibmweb.overlay.hide('project_overlay');" />
+							<input value="Cancel" type="button" class="ibm-btn-cancel-sec" id="candidate_cancel" onclick="ibmweb.overlay.hide('candidate_overlay');" />
 						</div>
 					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ibm-footer"></div>
+</div>
+<!-- Overlay End ============= -->
+
+<!-- Detail Start ============= -->
+<div class="ibm-common-overlay" id="candidate_detail">
+	<div class="ibm-head">
+		<p><a class="ibm-common-overlay-close" href="#close">Close [x]</a></p>
+	</div>
+	<div class="ibm-body">
+		<div class="ibm-main">
+			<a class="ibm-access"><!-- Accessibility anchor --></a>
+			<div class="ibm-title">
+				<h1 id="candidate_overlay_title">Edit candidate</h1>
+			</div>
+			<div class="ibm-container ibm-alternate">
+				<div class="ibm-container-body">
+					<p>Detail Information</p>
+					
 				</div>
 			</div>
 		</div>

@@ -49,7 +49,7 @@ class vendorController extends My_Controller_Rest
             throw new Exception("Please check your data and try again...");
         }
         
-        $table = new Model_DbTable_vendors();
+        $table = new Model_DbTable_Vendors();
 
         $this->getHelper('json')->sendJson( $table->update($item, "id = $id") );
     }
